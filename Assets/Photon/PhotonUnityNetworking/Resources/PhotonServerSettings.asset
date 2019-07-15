@@ -29,8 +29,8 @@ MonoBehaviour:
   EnableSupportLogger: 0
   RunInBackground: 1
   RpcList:
-  - RPC_SyncTimer
   - DoNetworkRelease
   - PVSpawn
+  - RPC_SyncTimer
   DisableAutoOpenWizard: 1
   ShowSettings: 0
