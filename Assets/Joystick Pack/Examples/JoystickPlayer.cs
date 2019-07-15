@@ -22,6 +22,7 @@ public class JoystickPlayer : MonoBehaviour
 
     private void Start()
     {
+        variableJoystick = GetComponent<VariableJoystick>();
         VariableJoystick.OnJoystickRelease += DoOnRelease;
         if (JoystickBackground != null)
         {

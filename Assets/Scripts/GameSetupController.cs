@@ -14,6 +14,6 @@ public class GameSetupController : MonoBehaviour
     {
         Debug.Log("Creating Player");
         var test = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
-        test.transform.SetParent(TestSingletonManager.Instance.CanvasTransform);
+//        test.transform.SetParent(TestSingletonManager.Instance.CanvasTransform);
     }
 }
