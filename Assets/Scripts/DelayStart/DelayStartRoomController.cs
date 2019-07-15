@@ -24,7 +24,10 @@ public class DelayStartRoomController : MonoBehaviourPunCallbacks
     {
         // called when our player joins the room
         // load into waiting room scene
-        SceneManager.LoadScene("DelayStartWaitingRoom", LoadSceneMode.Single);   
+        if(!PhotonNetwork.OfflineMode)
+            SceneManager.LoadScene("DelayStartWaitingRoom", LoadSceneMode.Single);   
+        else
+            PhotonNetwork.LoadLevel("MultiplayerScene");
 //        SceneManager.LoadScene(waitingRoomSceneIndex);
     }
 }

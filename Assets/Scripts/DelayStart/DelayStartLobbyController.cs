@@ -54,4 +54,12 @@ public class DelayStartLobbyController : MonoBehaviourPunCallbacks
         delayStartButton.SetActive(true);
         PhotonNetwork.LeaveRoom();
     }
+
+    public void OnSinglePlayerStart()
+    {
+        // NetworkingClient.Disconnect(); 
+        PhotonNetwork.OfflineMode = true;
+        PhotonNetwork.CreateRoom("singleP");
+        
+    }
 }

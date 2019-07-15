@@ -406,7 +406,7 @@ namespace Photon.Pun
                 if (value && IsConnected)
                 {
                     Debug.LogError("Can't start OFFLINE mode while connected!");
-                    return;
+//                    return;
                 }
 
                 if (NetworkingClient.IsConnected)

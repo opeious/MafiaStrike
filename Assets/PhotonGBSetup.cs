@@ -13,7 +13,7 @@ public class PhotonGBSetup : MonoBehaviour
             TestSingletonManager.Instance.playerPV = PV;
             JoystickPlayer.variableJoystick = GetComponentInChildren<VariableJoystick>();
         }
-        if (PhotonNetwork.IsMasterClient && PV.IsMine)
+        if (PhotonNetwork.IsMasterClient && (PV.IsMine || PhotonNetwork.OfflineMode))
         {
             PV.RPC("PVSpawn", RpcTarget.AllBuffered);
         }

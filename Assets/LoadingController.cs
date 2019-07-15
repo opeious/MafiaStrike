@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,7 +16,12 @@ public class LoadingController : MonoBehaviour
     private bool loadingAtm;
 
     [SerializeField] private GameObject enableOnTime;
-    
+
+    private void Start()
+    {
+        PhotonNetwork.OfflineMode = false;
+    }
+
     private void Update()
     {
         tdt += Time.deltaTime;
