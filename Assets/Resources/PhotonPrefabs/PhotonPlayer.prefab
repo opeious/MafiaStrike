@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 373}
   - component: {fileID: 544}
   - component: {fileID: 8670823883965888187}
-  - component: {fileID: 6563938704501698028}
-  - component: {fileID: 1930172880192499345}
   m_Layer: 0
   m_Name: PhotonPlayer
   m_TagString: Untagged
@@ -51,10 +49,10 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 1
+  Synchronization: 0
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 1930172880192499345}
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
@@ -70,35 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe3eaa24582240bea9010dae1cc3d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6563938704501698028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37d705c8e9115e439ec799186182634, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JoystickBackground: {fileID: 7772766881795380357}
-  JoystickHandle: {fileID: 7772766881580299910}
---- !u!114 &1930172880192499345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
 --- !u!1 &237
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,18 +287,6 @@ PrefabInstance:
 --- !u!224 &7772766882064959741 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230,
-    type: 3}
-  m_PrefabInstance: {fileID: 6773992764646731337}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7772766881795380357 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3881087803815115468, guid: ec536a7718376554185e4a856d5ae230,
-    type: 3}
-  m_PrefabInstance: {fileID: 6773992764646731337}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7772766881580299910 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3881087804030458063, guid: ec536a7718376554185e4a856d5ae230,
     type: 3}
   m_PrefabInstance: {fileID: 6773992764646731337}
   m_PrefabAsset: {fileID: 0}
