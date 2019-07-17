@@ -30,7 +30,7 @@ public class AimAssist : MonoBehaviour
     {
 //        return;
         _lineRenderer.enabled = (false);
-        if (lrEnabled && !TurnManager.Instance.currentTurnExecuted && TurnManager.Instance.isMyTurn())
+        if (lrEnabled && !TurnManager.Instance.currentTurnExecuted)
         {
             TurnManager.Instance.TurnOrder[0].AnimatorSetBool("pounceStart", false);
             if (JoystickPlayer.direction.magnitude < JoystickPlayer.RELEASE_THRESHOLD)

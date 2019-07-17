@@ -183,7 +183,7 @@ public class TurnManager : MonoBehaviour
     private void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer > 10f)
+        if (_timer > 30f)
         {
             if (_timer >= 15f)
             {

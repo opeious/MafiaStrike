@@ -89,17 +89,18 @@ public class JoystickPlayer : MonoBehaviour
     {
         if (!TurnManager.Instance.isMyTurn())
         {
-            return;
+//            return;
         }
         if (direction.magnitude > RELEASE_THRESHOLD && !TurnManager.Instance.currentTurnExecuted)
         {
+            DoNetworkRelease(direction.x, direction.y, direction.z);
             if (PhotonNetwork.IsMasterClient)
             {
-                TestSingletonManager.Instance.playerPV.RPC("DoNetworkRelease", RpcTarget.AllBuffered, direction.x, direction.y, direction.z);   
+//                TestSingletonManager.Instance.playerPV.RPC("DoNetworkRelease", RpcTarget.AllBuffered, direction.x, direction.y, direction.z);   
             }
             else
             {
-                TestSingletonManager.Instance.playerPV.RPC("DoNetworkRelease", RpcTarget.AllBuffered, -direction.x, -direction.y, -direction.z);
+//                TestSingletonManager.Instance.playerPV.RPC("DoNetworkRelease", RpcTarget.AllBuffered, -direction.x, -direction.y, -direction.z);
             }
 //            TestSingletonManager.Instance.playerPV.RPC("DoNetworkRelease", RpcTarget.AllBuffered, direction.x, direction.y, direction.z);   
 //            Debug.LogError("Player" + TurnManager.Instance.thisPlayerId + " released");

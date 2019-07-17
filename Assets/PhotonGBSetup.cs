@@ -5,14 +5,26 @@ using UnityEngine;
 
 public class PhotonGBSetup : MonoBehaviour
 {
+    private PhotonView PV;
+    
     private void Start()
     {
-        var PV = GetComponent<PhotonView>();
+        PV = GetComponent<PhotonView>();
+        
+        if (PV.isMasterClient())
+        {
+            TestSingletonManager.Instance.masterClientPV = PV;
+            SpawnerFunction();
+        }
         if (PV.IsMine || PhotonNetwork.OfflineMode)
         {
             TestSingletonManager.Instance.playerPV = PV;
 //            JoystickPlayer.variableJoystick = GetComponentInChildren<VariableJoystick>();
         }
+    }
+
+    void SpawnerFunction()
+    {
         if (PhotonNetwork.IsMasterClient && (PV.IsMine || PhotonNetwork.OfflineMode))
         {
             PV.RPC("PVSpawn", RpcTarget.AllBuffered);
@@ -22,6 +34,7 @@ public class PhotonGBSetup : MonoBehaviour
     [PunRPC]
     void PVSpawn()
     {
-        TestSingletonManager.Instance.SpawnStuff();
+        TestSingletonManager.Instance.spawnStuff = true;
+//        TestSingletonManager.Instance.SpawnStuff();
     }
 }

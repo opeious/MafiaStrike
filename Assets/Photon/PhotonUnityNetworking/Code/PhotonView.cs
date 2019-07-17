@@ -50,6 +50,11 @@ namespace Photon.Pun
         [NonSerialized]
         private int ownerId; // TODO maybe changing this should trigger "Was Transfered"!?
 
+        public bool isMasterClient()
+        {
+            return ownerId == PhotonNetwork.NetworkingClient.CurrentRoom.MasterClientId;
+        }
+
         [FormerlySerializedAs("group")]
         public byte Group = 0;
 

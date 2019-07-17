@@ -48,6 +48,19 @@ public class TestSingletonManager : MonoBehaviour
 
     public PhotonView playerPV;
 
+    public PhotonView masterClientPV;
+
+    private bool _spawnStuff = false;
+    
+    public bool spawnStuff
+    {
+        get { return _spawnStuff; }
+        set
+        {
+            _spawnStuff = value;
+        }
+    }
+
     [SerializeField] private GameObject cameraAnchorPlayer2;
     [SerializeField] private GameObject mainCameraGO;
     
@@ -184,7 +197,7 @@ public class TestSingletonManager : MonoBehaviour
 
     void SpawnOnGameboard(GameboardUnitData unitData, GameObject prefabToSpawn)
     {
-        var spawnedGO = Instantiate(prefabToSpawn);
+        var spawnedGO = Instantiate(prefabToSpawn, masterClientPV.transform);
         var charComp = spawnedGO.transform.GetComponentInChildren<GameboardCharacterController>();
         if (charComp != null)
         {
@@ -192,6 +205,16 @@ public class TestSingletonManager : MonoBehaviour
             unitsOnBoard.Add(charComp);
         }
     }
+
+    private void Update()
+    {
+        if (masterClientPV != null && _spawnStuff == true)
+        {
+            _spawnStuff = false;
+            SpawnStuff();
+        }
+    }
+
 
     private void OnDestroy()
     {
