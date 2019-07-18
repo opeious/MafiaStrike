@@ -6,19 +6,9 @@ using UnityEngine.UI;
 
 public class NextTurnCellView : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI debugOrderText;
-
     [SerializeField] private GameObject debugColorImg;
 
     [SerializeField] private Image icon;
-
-    public void DebugTextSetup(int id)
-    {
-        if (debugOrderText != null)
-        {
-            debugOrderText.text = id + "";
-        }
-    }
 
     public void SetIcon(Sprite iconToSet)
     {

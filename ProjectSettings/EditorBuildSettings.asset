@@ -7,26 +7,20 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/LoadingSplash.unity
-    guid: 3531dc90c99e4453095f4bbb01fd132a
+    guid: 99a0adf5dccc64e3bb35f4926f194bc9
   - enabled: 1
-    path: Assets/Scenes/DelayStartWaitingRoom.unity
-    guid: 9cf14526ac2f5ea48aa2393755a654d2
-  - enabled: 1
-    path: Assets/Scenes/DelayStartMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 803bb693d43ee714db113261fd82e181
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Scenes/WaitingRoom.unity
+    guid: 9cf14526ac2f5ea48aa2393755a654d2
   - enabled: 1
-    path: Assets/Scenes/WinScreen.unity
-    guid: 2a2a428f5d43641a8b2c6c09ab974d57
-  - enabled: 1
-    path: Assets/Scenes/MultiplayerScene.unity
+    path: Assets/Scenes/MultiplayerGame.unity
     guid: 6dc254e08b859be44b6f16928250a696
   - enabled: 1
-    path: Assets/Scenes/BetterMPScene.unity
-    guid: 0b14831ded95a4305973446ae82c90f4
-  - enabled: 1
     path: Assets/Scenes/LoseScreen.unity
-    guid: e654e712082094effa2ff93888c29c86
+    guid: 7006220e4fa0e453d93cd01e006dc5d2
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: d726db86849fb407f8621309172ad0f2
   m_configObjects: {}

@@ -35,7 +35,7 @@ public class NextTurnView : MonoBehaviour
             var newTurnGO = Instantiate(CellPrefab);
             newTurnGO.transform.SetParent(gameObject.transform);
             var nextTurnCell = newTurnGO.GetComponent<NextTurnCellView>(); 
-            nextTurnCell.DebugTextSetup(singleTurn.Data.debugId);
+//            nextTurnCell.DebugTextSetup(singleTurn.Data.debugId);
             nextTurnCell.SetColor(singleTurn.Data.teamId);
             nextTurnCell.SetIcon(singleTurn.Data.icon);
             cells.Add(newTurnGO);

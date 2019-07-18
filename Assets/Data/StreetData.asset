@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8d5f40c7c1048a3998713e0c95edcf, type: 3}
+  m_Name: StreetData
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  startingSpeed: 100
+  gameboardVelocity: 100
+  damage: 20
+  typeOfChar: 0
+  visualPrefab: {fileID: 9041591062172569678, guid: 1be5c01dd82a641c1987185d29f8f579,
+    type: 3}
+  icon: {fileID: 21300000, guid: 2a2a65f29812d4a278d22b87366ee05e, type: 3}
