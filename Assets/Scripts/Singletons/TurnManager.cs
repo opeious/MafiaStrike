@@ -38,6 +38,9 @@ public class TurnManager : MonoBehaviour
     
     public bool isMyTurn()
     {
+        if(TurnOrder == null || TurnOrder.Count == 0) {
+            return false;
+        }
         return TurnOrder[0].Data.teamId == thisPlayerId;
     }
 

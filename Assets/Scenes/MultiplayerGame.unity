@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00066731684, g: 0.0008555745, b: 0.41924208, a: 1}
+  m_IndirectSpecularColor: {r: 0.0012765051, g: 0.0013119349, b: 0.41442192, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 75513245}
   - component: {fileID: 75513246}
   - component: {fileID: 75513247}
+  - component: {fileID: 75513248}
   m_Layer: 0
   m_Name: Singletons
   m_TagString: Untagged
@@ -229,6 +230,20 @@ MonoBehaviour:
   variableJoystick: {fileID: 1389364003}
   JoystickBackground: {fileID: 1405288168}
   JoystickHandle: {fileID: 1405288167}
+--- !u!114 &75513248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75513242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fcf17052560cf43a27f1bf8d1d5d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowDownFactor: 0.05
+  slowDownLength: 2
 --- !u!1 &233944808
 GameObject:
   m_ObjectHideFlags: 0
