@@ -21,7 +21,7 @@ public class GameboardCharacterController : MonoBehaviour
 
     #region SerializedObjects
     public Rigidbody rb;
-    [SerializeField] private GameObject VisualPrefabContainer;
+    [SerializeField] public GameObject VisualPrefabContainer;
     [SerializeField] private GameObject activeCircleTeam1;
     [SerializeField] private GameObject activeCircleTeam2;
     [SerializeField] public GameObject ArrowSpriteContainerGO;

@@ -5,22 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/LoadingSplash.unity
     guid: 99a0adf5dccc64e3bb35f4926f194bc9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 803bb693d43ee714db113261fd82e181
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WaitingRoom.unity
     guid: 9cf14526ac2f5ea48aa2393755a654d2
   - enabled: 1
     path: Assets/Scenes/MultiplayerGame.unity
     guid: 6dc254e08b859be44b6f16928250a696
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/LoseScreen.unity
     guid: 7006220e4fa0e453d93cd01e006dc5d2
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: d726db86849fb407f8621309172ad0f2
   m_configObjects: {}

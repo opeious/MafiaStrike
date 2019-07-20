@@ -973,6 +973,7 @@ GameObject:
   - component: {fileID: 942349569}
   - component: {fileID: 942349568}
   - component: {fileID: 942349572}
+  - component: {fileID: 942349573}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1072,7 +1073,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942349567}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 877a87682fc56c24fa6683f155ed7329, type: 2}
   m_CullingMode: 0
@@ -1083,6 +1084,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &942349573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942349567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13a78ace2d4b1a4d8dd1fe18fae22ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintAnimator: {fileID: 942349572}
+  hintContainer: {fileID: 1978933061}
 --- !u!1 &957731661
 GameObject:
   m_ObjectHideFlags: 0
