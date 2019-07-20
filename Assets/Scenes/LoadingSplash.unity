@@ -340,8 +340,10 @@ GameObject:
   - component: {fileID: 476923027}
   - component: {fileID: 476923029}
   - component: {fileID: 476923028}
+  - component: {fileID: 476923031}
+  - component: {fileID: 476923030}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: PersistentManagers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,6 +471,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &476923030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476923026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817018d9c174b7d4a9e615e225fb74d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &476923031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476923026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d693fc2de15efda4b9e53325c9b42e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &511490012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1278,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street
       objectReference: {fileID: 0}
+    - target: {fileID: 2714392066227883815, guid: 1be5c01dd82a641c1987185d29f8f579,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3a10447bf83c1482ca64a5012e396ec2, type: 2}
     - target: {fileID: 5413739010016305757, guid: 1be5c01dd82a641c1987185d29f8f579,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1317,11 +1348,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2714392066227883815, guid: 1be5c01dd82a641c1987185d29f8f579,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3a10447bf83c1482ca64a5012e396ec2, type: 2}
     - target: {fileID: 2926254961428219412, guid: 1be5c01dd82a641c1987185d29f8f579,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -293,6 +293,5 @@ public class GameboardCharacterController : MonoBehaviour
     public bool isPlayerMe()
     {
         return TurnManager.Instance.thisPlayerId == Data.teamId;
-        return false;
     }
 }
