@@ -2,7 +2,8 @@
 using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using TMPro;
+using System.Collections.Generic;
 
 public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
 {
@@ -23,11 +24,10 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
     [SerializeField]
     private int minPlayersToStart;
 
-    // text variables for holding the displays for the countdown timer and player count
-    [SerializeField]
-    private Text playerCountDisplay;
-    [SerializeField]
-    private Text timerToStartDisplay;
+    [SerializeField] private TextMeshProUGUI findingMatchText;
+    [SerializeField] private GameObject findingMatchGameObject;
+    [SerializeField] private TextMeshProUGUI foundMatchText;
+    [SerializeField] private GameObject foundMatchGameObject;
 
     // bool values for if the timer can count down
     private bool readyToCountDown;
@@ -43,6 +43,9 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
     [SerializeField]
     private float maxFullRoomWaitTime;
 
+
+    List<string> findingMatchTexts = new List<string>();
+
     private void Start()
     {
         //initialize variables
@@ -52,8 +55,27 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
         timerToStartGame = maxWaitTime;
 
         PlayerCountUpdate();
+
+        findingMatchTexts.Add("FINDING \nOPPONENT\n.");
+        findingMatchTexts.Add("FINDING \nOPPONENT\n..");
+        findingMatchTexts.Add("FINDING \nOPPONENT\n...");
     }
 
+    float countdownTextChange = 0f;
+    int countdownTextChangeIterator = 0;
+    private void Update()
+    {
+        countdownTextChange += Time.deltaTime;
+        if(countdownTextChange > 1.5f) {
+            countdownTextChange = 0f;
+            if(countdownTextChangeIterator >= findingMatchTexts.Count) {
+                countdownTextChangeIterator = 0;
+            }
+            findingMatchText.text = findingMatchTexts[countdownTextChangeIterator];
+            countdownTextChangeIterator++;
+        }
+        WaitingForMorePlayers();
+    }
     void PlayerCountUpdate()
     {
         // updates player count when players join the room
@@ -61,7 +83,7 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
         // triggers countdown timer
         playerCount = PhotonNetwork.PlayerList.Length;
         roomSize = PhotonNetwork.CurrentRoom.MaxPlayers;
-        playerCountDisplay.text = playerCount + ":" + roomSize;
+        //playerCountDisplay.text = playerCount + ":" + roomSize;
 
         if (playerCount == roomSize)
         {
@@ -105,10 +127,6 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
         PlayerCountUpdate();
     }
 
-    private void Update()
-    {
-        WaitingForMorePlayers();
-    }
 
     void WaitingForMorePlayers()
     {
@@ -130,7 +148,17 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
         }
         // format and display countdown timer
         string tempTimer = string.Format("{0:00}", timerToStartGame);
-        timerToStartDisplay.text = tempTimer;
+
+        if(playerCount > 1) {
+            if(timerToStartGame > 3f) {
+                findingMatchText.gameObject.SetActive(false);
+                foundMatchText.gameObject.SetActive(true);
+            } else {
+                findingMatchGameObject.SetActive(false);
+                foundMatchGameObject.SetActive(true);
+            }
+        }
+        //timerToStartDisplay.text = tempTimer;
         // if the countdown timer reaches 0 the game will then start
         if (timerToStartGame <= 0f)
         {

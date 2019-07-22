@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TurnManager : MonoBehaviour
 {
@@ -55,9 +56,6 @@ public class TurnManager : MonoBehaviour
     public bool currentTurnExecuted;
     public List<GameboardCharacterController> TurnOrder;
     public GameboardCharacterController currentTurn;
-
-
-    [SerializeField] private TextMeshProUGUI turnTimerText;
 
     private void OnUnitDead(GameboardCharacterController deadUnit)
     {
@@ -120,10 +118,12 @@ public class TurnManager : MonoBehaviour
         RaiseRefreshViews();
     }
     
-    private void Update()
-    {
+    [SerializeField] Slider turnTimer;
+
+    private void FixedUpdate() {
         _countdownTimer += Time.deltaTime;
-        turnTimerText.text = (int)(TURN_TIME - _countdownTimer) + "";
+        float normalizedTime = (TURN_TIME - _countdownTimer) / TURN_TIME;
+        turnTimer.value = normalizedTime;
         if ( _countdownTimer > TURN_TIME)
         {
             if (PhotonNetwork.IsMasterClient && SpawningManager.Instance.serverPhotonView.IsMine)
@@ -170,7 +170,7 @@ public class TurnManager : MonoBehaviour
     public void TurnExpired()
     {
         _countdownTimer = 0f;
-        GoNextTurn(0f); 
+        StartCoroutine(GoNextTurn(0f));
     }
     
     public void KillUnit(GameboardCharacterController died)
