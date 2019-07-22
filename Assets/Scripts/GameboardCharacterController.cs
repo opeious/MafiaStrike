@@ -106,15 +106,33 @@ public class GameboardCharacterController : MonoBehaviour
     public void TakeDamage(float dmg, int indexOf)
     {
         // TimeScaleManager.Instance.EnterSloMo();
+        bool strong = false;
+        bool weak = false;
         if (TurnManager.Instance.TurnOrder[indexOf].Data.strongTo == Data.charType) {
             dmg += (dmg * BonusDamageMultiplier);
+            strong = true;
         }
         if (TurnManager.Instance.TurnOrder[indexOf].Data.weakTo == Data.weakTo) {
             dmg -= (dmg * BonusDamageMultiplier);
+            weak = true;
         }
+        HealthBarSetPeekDamage((int)dmg);
+
+        if(strong) {
+            ActiveHealthBarView.takingStrongDamage = true;
+            StartCoroutine(ActiveHealthBarView.DoTakeDmgAniamtion(ActiveHealthBarView.strongAnimDmg));
+        } else if (weak) {
+            ActiveHealthBarView.takingWeakDamage = true;
+            StartCoroutine(ActiveHealthBarView.DoTakeDmgAniamtion(ActiveHealthBarView.weakAnimDmg));
+        } else {
+            ActiveHealthBarView.takingNeutralDamage = true;
+            StartCoroutine(ActiveHealthBarView.DoTakeDmgAniamtion(ActiveHealthBarView.neutralAnimDmg));
+        }
+
         currentHealth -= dmg;
         RefreshHealthBar();
     }
+
 
     public int PeekDamageStrengthFrom(GameboardCharacterController gccFrom) {
         int retVal = 0;

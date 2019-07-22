@@ -1,6 +1,7 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class HealthBarView : MonoBehaviour
 {
@@ -21,6 +22,14 @@ public class HealthBarView : MonoBehaviour
     
 
     private GameboardCharacterController healthBarOf;
+
+    public bool takingWeakDamage = false;
+    public bool takingStrongDamage = false;
+    public bool takingNeutralDamage = false;
+
+    public Animator strongAnimDmg;
+    public Animator weakAnimDmg;
+    public Animator neutralAnimDmg;
     
     public void Setup(GameboardCharacterController gcc) {
         healthBarOf = gcc;
@@ -35,36 +44,49 @@ public class HealthBarView : MonoBehaviour
         }
     }
 
+    public IEnumerator DoTakeDmgAniamtion(Animator animator) {
+        animator.enabled = true;
+        FixedUpdate();
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.01f);
+        animator.enabled = false;
+        takingWeakDamage = false;
+        takingStrongDamage = false;
+        takingNeutralDamage = false;
+    }
+
     private void FixedUpdate() {
         if(!showNew && !showStrong && !showWeak) {
             if(sliderAnimation.gameObject.activeSelf) {
                 sliderAnimation.gameObject.SetActive(false);
             }
         }
-        if (showNew) {
+        if (showNew || takingNeutralDamage) {
             if(neutralFB.activeSelf == false) {
                 neutralFB.SetActive(true);
-                sliderAnimation.gameObject.SetActive(true);
+                if(showNew)
+                    sliderAnimation.gameObject.SetActive(true);
             }
         } else {
             if(neutralFB.activeSelf == true) {
                 neutralFB.SetActive(false);
             }           
         }        
-        if (showStrong) {
+        if (showStrong || takingStrongDamage) {
             if(strongFB.activeSelf == false) {
                 strongFB.SetActive(true);
-                sliderAnimation.gameObject.SetActive(true);
+                if(showStrong)
+                    sliderAnimation.gameObject.SetActive(true);
             }
         } else {
             if(strongFB.activeSelf == true) {
                 strongFB.SetActive(false);
             }           
         }
-        if (showWeak) {
+        if (showWeak || takingWeakDamage) {
             if(weakFB.activeSelf == false) {
                 weakFB.SetActive(true);
-                sliderAnimation.gameObject.SetActive(true);
+                if(showWeak)
+                    sliderAnimation.gameObject.SetActive(true);
             }
         } else {
             if(weakFB.activeSelf == true) {
