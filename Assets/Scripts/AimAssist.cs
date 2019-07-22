@@ -31,6 +31,9 @@ public class AimAssist : MonoBehaviour
     {
 //        return;
         _lineRenderer.enabled = (false);
+        foreach(var singleTurn in TurnManager.Instance.TurnOrder) {
+            singleTurn.HealthBarResetView();
+        }
         if (lrEnabled && !TurnManager.Instance.currentTurnExecuted && TurnManager.Instance.isMyTurn())
         {
             TurnManager.Instance.TurnOrder[0].AnimatorSetBool("pounceStart", false);
@@ -64,7 +67,8 @@ public class AimAssist : MonoBehaviour
                     var hitChar = hitinfo.collider.gameObject.GetComponentInChildren<GameboardCharacterController>();
                     if(hitChar != null) {
                         if(hitChar.Data.teamId != activeChar.Data.teamId) {
-                            Debug.Log("peek" + hitChar.PeekDamageFrom(activeChar));
+                            hitChar.HealthBarSetPeekDamage((int)hitChar.PeekDamageFrom(activeChar));
+                            hitChar.HealthBarSetPeekType(hitChar.PeekDamageStrengthFrom(activeChar));
                         }
                     }
                 }

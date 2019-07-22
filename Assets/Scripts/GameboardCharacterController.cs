@@ -116,6 +116,19 @@ public class GameboardCharacterController : MonoBehaviour
         RefreshHealthBar();
     }
 
+    public int PeekDamageStrengthFrom(GameboardCharacterController gccFrom) {
+        int retVal = 0;
+        if(gccFrom != null) {
+            if(gccFrom.Data.strongTo == Data.charType) {
+                retVal = 1;
+            }
+            if(gccFrom.Data.weakTo == Data.charType) {
+                retVal = -1;
+            }
+        }
+        return retVal;
+    }
+
     public float PeekDamageFrom(GameboardCharacterController gccFrom) {
         float retVal = 0f;
         if(gccFrom != null) {
@@ -249,6 +262,17 @@ public class GameboardCharacterController : MonoBehaviour
         }
     }
 
+    public void HealthBarSetPeekDamage(int dmg) {
+        ActiveHealthBarView.SetTexts(dmg);
+    }
+
+    public void HealthBarSetPeekType(int type) {
+        ActiveHealthBarView.SetHealthbarAdvType(type);
+    }
+
+    public void HealthBarResetView() {
+        ActiveHealthBarView.ResetView();
+    }
     
     public void CreateHealthbar()
     {        

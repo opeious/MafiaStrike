@@ -31,6 +31,54 @@ public class HealthBarView : MonoBehaviour
         }
     }
 
+    private void FixedUpdate() {
+        if (showNew) {
+            if(neutralFB.activeSelf == false) {
+                neutralFB.SetActive(true);
+            }
+        } else {
+            if(neutralFB.activeSelf == true) {
+                neutralFB.SetActive(false);
+            }           
+        }        
+        if (showStrong) {
+            if(strongFB.activeSelf == false) {
+                strongFB.SetActive(true);
+            }
+        } else {
+            if(strongFB.activeSelf == true) {
+                strongFB.SetActive(false);
+            }           
+        }
+        if (showWeak) {
+            if(weakFB.activeSelf == false) {
+                weakFB.SetActive(true);
+            }
+        } else {
+            if(weakFB.activeSelf == true) {
+                weakFB.SetActive(false);
+            }           
+        }        
+    }
+
+    public void ResetView() {
+        showNew = showWeak = showStrong = false;
+    }
+
+    bool showNew, showWeak, showStrong;
+
+    public void SetHealthbarAdvType(int type) {
+        if(type == 0) {
+            showNew = true;
+        }
+        if(type == -1 ) {
+            showWeak = true;
+        }
+        if(type == 1) {
+            showStrong = true;
+        }
+    }
+
     public void SetTexts(int dmg) {
         neutralText.text = "-" + dmg;
         strongText.text = "-" + dmg;
