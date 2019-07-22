@@ -130,7 +130,7 @@ public class GameboardCharacterController : MonoBehaviour
     
     public void TakeDamage(float dmg)
     {
-        TimeScaleManager.Instance.EnterSloMo();
+        // TimeScaleManager.Instance.EnterSloMo();
         currentHealth -= dmg;
         RefreshHealthBar();
     }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 
 public class AimAssist : MonoBehaviour
 {
@@ -47,7 +48,12 @@ public class AimAssist : MonoBehaviour
             
             _lineRenderer.SetPosition(0, new Vector3(startPos.x, 0, startPos.z));
             RaycastHit hitinfo;
-            var raycast = Physics.SphereCast(startPos, 2f, -JoystickPlayer.direction, out hitinfo);
+            bool raycast;
+            if(PhotonNetwork.IsMasterClient) {
+                raycast = Physics.SphereCast(startPos, 2f, -JoystickPlayer.direction, out hitinfo);
+            } else {
+                raycast = Physics.SphereCast(startPos, 2f, JoystickPlayer.direction, out hitinfo);
+            }
             if (raycast)
             {
                 var point1 = hitinfo.point;
