@@ -89,7 +89,7 @@ public class GameboardCharacterController : MonoBehaviour
     {
         if (ActiveHealthBar != null)
         {
-            var hbComp = ActiveHealthBar.GetComponent<Slider>();
+            var hbComp = ActiveHealthBarView.sliderMain;
             if (hbComp != null)
             {
                 float sliderNormalizedValue = currentHealth / Data.maxHealth;

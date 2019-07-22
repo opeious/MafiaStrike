@@ -16,6 +16,10 @@ public class HealthBarView : MonoBehaviour
     [SerializeField] private GameObject weakFB;
     [SerializeField] private TextMeshProUGUI weakText;
 
+    [SerializeField] public Slider sliderMain;
+    [SerializeField] public Slider sliderAnimation;
+    
+
     private GameboardCharacterController healthBarOf;
     
     public void Setup(GameboardCharacterController gcc) {
@@ -32,9 +36,15 @@ public class HealthBarView : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        if(!showNew && !showStrong && !showWeak) {
+            if(sliderAnimation.gameObject.activeSelf) {
+                sliderAnimation.gameObject.SetActive(false);
+            }
+        }
         if (showNew) {
             if(neutralFB.activeSelf == false) {
                 neutralFB.SetActive(true);
+                sliderAnimation.gameObject.SetActive(true);
             }
         } else {
             if(neutralFB.activeSelf == true) {
@@ -44,6 +54,7 @@ public class HealthBarView : MonoBehaviour
         if (showStrong) {
             if(strongFB.activeSelf == false) {
                 strongFB.SetActive(true);
+                sliderAnimation.gameObject.SetActive(true);
             }
         } else {
             if(strongFB.activeSelf == true) {
@@ -53,6 +64,7 @@ public class HealthBarView : MonoBehaviour
         if (showWeak) {
             if(weakFB.activeSelf == false) {
                 weakFB.SetActive(true);
+                sliderAnimation.gameObject.SetActive(true);
             }
         } else {
             if(weakFB.activeSelf == true) {
@@ -83,6 +95,10 @@ public class HealthBarView : MonoBehaviour
         neutralText.text = "-" + dmg;
         strongText.text = "-" + dmg;
         weakText.text = "-" + dmg;
+
+        float sliderNormalizedValue = (float)((healthBarOf.Data.maxHealth - healthBarOf.currentHealth)  + dmg) / (float)healthBarOf.Data.maxHealth;
+        sliderNormalizedValue = Mathf.Clamp(sliderNormalizedValue, 0f, 1f);
+        sliderAnimation.value = sliderNormalizedValue;
     }
 
     public void SetupColor(bool isCurrentTeamHB)
