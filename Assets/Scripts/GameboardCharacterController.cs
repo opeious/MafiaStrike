@@ -29,6 +29,7 @@ public class GameboardCharacterController : MonoBehaviour
     [SerializeField] private TransformFollower disableWithArrow;
     [SerializeField] private GameObject HealthBarPrefab;
     [SerializeField] private Transform HealthBarAnchor;
+    [SerializeField] private Transform CameraAnchor;
     #endregion
     
     private string NameOfGameObject;
@@ -66,47 +67,18 @@ public class GameboardCharacterController : MonoBehaviour
         SetActiveCircleAndArrowRoation(isPlayerMe());
     }
 
-    private void FixedUpdate()
-    {
-        if (ActiveHealthBar != null)
-        {
-            if (rb.velocity.magnitude > 1)
-            {
-                Vector2 localPoint;
-                var screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, HealthBarAnchor.position);
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(SpawningManager.Instance.CanvasTransform, screenPos, null, out localPoint);
-                ActiveHealthBar.transform.localPosition = localPoint;
-
-                if (rb.velocity.magnitude > 3)
-                {
-                    AnimatorSetBool("dashStart", true);
-                    AnimatorSetBool("pounceStart", false);
-                }
-                else
-                { 
-                    AnimatorSetBool("dashStart", false);
-                    AnimatorSetBool("pounceStart", false);
-                }
-            }
-        }
-
-        if (rb.velocity.magnitude > 2f && TurnManager.Instance.currentTurn == this)
-        {
-            var directionVisualPrefab = isPlayerMe() ? -rb.velocity.normalized : rb.velocity.normalized;
-            VisualPrefabContainer.transform.localRotation = Quaternion.LookRotation(-directionVisualPrefab);
-        }
-
-        if (rb.velocity.magnitude < 2f)
-        {
-            AnimatorSetBool("dashStart", false);
-        }
-    }
-
     public void AnimatorSetBool(string name, bool value)
     {
         if (_animator != null)
         {
             _animator.SetBool(name, value);
+        }
+    }
+
+    public void AniamtionSetFloat(string name, float value) {
+        if (_animator != null)
+        {
+            _animator.SetFloat(name, value);
         }
     }
     
@@ -143,6 +115,89 @@ public class GameboardCharacterController : MonoBehaviour
         if (ActiveHealthBar != null)
         {
             Destroy(ActiveHealthBar);
+        }
+    }
+
+    bool _currentlyPunching = false;
+    
+    IEnumerator EndPunch(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        SpawningManager.Instance.CanvasTransform.gameObject.SetActive(true);
+        AnimatorSetBool("punch", false);
+        yield return new WaitForSeconds(waitTime);
+        _currentlyPunching = false;
+        SpawningManager.Instance.CanvasTransform.gameObject.SetActive(true);
+        CameraLerp.Instance.StartReturning();
+    }
+
+    private void FixedUpdate()
+    {
+        if (ActiveHealthBar != null)
+        {
+            if (rb.velocity.magnitude > 1)
+            {
+                Vector2 localPoint;
+                var screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, HealthBarAnchor.position);
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(SpawningManager.Instance.CanvasTransform, screenPos, null, out localPoint);
+                ActiveHealthBar.transform.localPosition = localPoint;
+
+            }
+        }
+
+        if(rb.velocity.magnitude > 1f) {
+            if(TurnManager.Instance.TurnOrder[0].Data.teamId == Data.teamId) {
+                RaycastHit hitinfo;
+                bool slowMoRay = Physics.SphereCast(rb.position, 5f, rb.velocity.normalized, out hitinfo, rb.velocity.magnitude);
+                if(slowMoRay) {
+                    if(hitinfo.collider != null && hitinfo.collider.gameObject != null) {        
+                        if(hitinfo.collider.gameObject.name == NameOfGameObject) {
+                            var hitChar = hitinfo.collider.gameObject.GetComponentInChildren<GameboardCharacterController>();
+                            if(hitChar != null) {
+                                if(hitChar.Data.teamId != Data.teamId) {
+                                    if(hitChar.currentHealth < Data.damage) {
+                                        if(_currentlyPunching == false) {
+                                            SpawningManager.Instance.CanvasTransform.gameObject.SetActive(false);
+                                            CameraLerp.Instance.StartLerping(CameraAnchor, CameraAnchor.position, CameraAnchor);
+                                            TimeScaleManager.Instance.EnterSloMo();
+                                            AnimatorSetBool("punch", true);
+                                            float timeToDoAnim = hitinfo.distance / rb.velocity.magnitude;
+                                            StartCoroutine(EndPunch(_animator.GetCurrentAnimatorStateInfo(0).length * timeToDoAnim));
+                                            AniamtionSetFloat("punchAnimationSpeed", _animator.GetCurrentAnimatorStateInfo(0).length / timeToDoAnim);
+                                            _currentlyPunching = true;
+                                            hitChar.AnimatorSetBool("dieded", true);
+                                            hitChar.AnimatorSetBool("getHit", true);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        else {
+                            if (rb.velocity.magnitude > 3)
+                            {
+                                AnimatorSetBool("dashStart", true);
+                                AnimatorSetBool("pounceStart", false);
+                            }
+                            else
+                            { 
+                                AnimatorSetBool("dashStart", false);
+                                AnimatorSetBool("pounceStart", false);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            if (TurnManager.Instance.currentTurn == this)
+            {
+                var directionVisualPrefab = isPlayerMe() ? -rb.velocity.normalized : rb.velocity.normalized;
+                VisualPrefabContainer.transform.localRotation = Quaternion.LookRotation(-directionVisualPrefab);
+            }
+        }
+
+        if (rb.velocity.magnitude < 2f)
+        {
+            AnimatorSetBool("dashStart", false);
         }
     }
     

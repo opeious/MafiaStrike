@@ -6,8 +6,8 @@ public class TimeScaleManager : MonoBehaviour
 {
     public static TimeScaleManager Instance;
 
-    public float slowDownFactor = 0.001f;
-    public float slowDownLength = 2f;
+    public float slowDownFactor = 0.0005f;
+    public float slowDownLength = 8f;
 
     private void Awake() {
         Instance = this;

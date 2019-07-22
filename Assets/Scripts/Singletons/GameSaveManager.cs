@@ -85,6 +85,8 @@ public class GameSaveManager : MonoBehaviour
 
     public static void AddSavableManager(ISaveData savableManager)
     {
-        allSaveManagers.Add(savableManager);
+        if(!allSaveManagers.Contains(savableManager)) {
+            allSaveManagers.Add(savableManager);
+        }
     }
 }

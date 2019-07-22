@@ -50,9 +50,9 @@ public class AimAssist : MonoBehaviour
             RaycastHit hitinfo;
             bool raycast;
             if(PhotonNetwork.IsMasterClient) {
-                raycast = Physics.SphereCast(startPos, 2f, -JoystickPlayer.direction, out hitinfo);
+                raycast = Physics.SphereCast(startPos, 5f, -JoystickPlayer.direction, out hitinfo);
             } else {
-                raycast = Physics.SphereCast(startPos, 2f, JoystickPlayer.direction, out hitinfo);
+                raycast = Physics.SphereCast(startPos, 5f, JoystickPlayer.direction, out hitinfo);
             }
             if (raycast)
             {
