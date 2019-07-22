@@ -63,7 +63,7 @@ public class AimAssist : MonoBehaviour
 
 
             //Scale arrow
-            float xyArrowScale = JoystickPlayer.direction.magnitude * 7f;
+            float xyArrowScale = JoystickPlayer.direction.magnitude * 30f;
             TurnManager.Instance.TurnOrder[0].ArrowSpriteGO.transform.localScale = new Vector3(xyArrowScale,xyArrowScale * 1.4f,1);
             
             var quat = Quaternion.LookRotation(-JoystickPlayer.direction);
