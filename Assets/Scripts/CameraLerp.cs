@@ -45,14 +45,12 @@ public class CameraLerp : MonoBehaviour
     void Update()
     {
         if(currentlyLerping) {
-            Debug.Log(targetPos);
             transform.position = Vector3.Lerp(transform.position, target.position, 0.1f);
             transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, 0.1f);
         }
         if(currentlyReturning) {
             gameObject.transform.position = Vector3.Lerp(transform.position, backupPos, 0.1f);
             gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, backupRot, 0.1f);
-
         }
     }
 
