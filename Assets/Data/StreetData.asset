@@ -17,6 +17,8 @@ MonoBehaviour:
   gameboardVelocity: 100
   damage: 20
   typeOfChar: 0
+  strongTo: 1
+  weakTo: 2
   visualPrefab: {fileID: 9041591062172569678, guid: 1be5c01dd82a641c1987185d29f8f579,
     type: 3}
   icon: {fileID: 21300000, guid: 2a2a65f29812d4a278d22b87366ee05e, type: 3}

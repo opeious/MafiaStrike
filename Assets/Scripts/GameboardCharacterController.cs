@@ -32,12 +32,15 @@ public class GameboardCharacterController : MonoBehaviour
     [SerializeField] private Transform CameraAnchor;
     #endregion
     
-    private string NameOfGameObject;
+    public string NameOfGameObject;
     
     private Animator _animator;
     private List<GameObject> activatedVFX;
     private GameObject activeCircle;
     private GameObject ActiveHealthBar;
+    private HealthBarView ActiveHealthBarView;
+
+    private const float BonusDamageMultiplier = 0.25f;
 
     public void Setup(GameboardUnitData data)
     {
@@ -100,11 +103,31 @@ public class GameboardCharacterController : MonoBehaviour
         }
     }
     
-    public void TakeDamage(float dmg)
+    public void TakeDamage(float dmg, int indexOf)
     {
         // TimeScaleManager.Instance.EnterSloMo();
+        if (TurnManager.Instance.TurnOrder[indexOf].Data.strongTo == Data.charType) {
+            dmg += (dmg * BonusDamageMultiplier);
+        }
+        if (TurnManager.Instance.TurnOrder[indexOf].Data.weakTo == Data.weakTo) {
+            dmg -= (dmg * BonusDamageMultiplier);
+        }
         currentHealth -= dmg;
         RefreshHealthBar();
+    }
+
+    public float PeekDamageFrom(GameboardCharacterController gccFrom) {
+        float retVal = 0f;
+        if(gccFrom != null) {
+            retVal = gccFrom.Data.damage;
+            if(gccFrom.Data.strongTo == Data.charType) {
+                retVal += (retVal * BonusDamageMultiplier);
+            }
+            if(gccFrom.Data.weakTo == Data.charType) {
+                retVal -= (retVal * BonusDamageMultiplier);
+            }
+        }
+        return retVal;
     }
     
     public void OnUnitDead()
@@ -216,7 +239,7 @@ public class GameboardCharacterController : MonoBehaviour
                         {
                             if (characterHit == TurnManager.Instance.TurnOrder[i])
                             {
-                                SpawningManager.Instance.myPhotonView.RPC("TakeDamage", RpcTarget.AllBuffered, i, Data.damage);
+                                SpawningManager.Instance.myPhotonView.RPC("TakeDamage", RpcTarget.AllBuffered, i, Data.damage, TurnManager.Instance.TurnOrder.IndexOf(this));
                                 break;   
                             }
                         }
@@ -232,10 +255,11 @@ public class GameboardCharacterController : MonoBehaviour
         ActiveHealthBar = Instantiate(HealthBarPrefab);
         ActiveHealthBar.transform.SetParent(SpawningManager.Instance.CanvasTransform);
 
-        var hbComp = ActiveHealthBar.GetComponent<HealthBarView>();
-        if (hbComp != null)
+        ActiveHealthBarView = ActiveHealthBar.GetComponent<HealthBarView>();
+        if (ActiveHealthBarView != null)
         {
-            hbComp.SetupColor(isPlayerMe());
+            ActiveHealthBarView.Setup(this);
+            ActiveHealthBarView.SetupColor(isPlayerMe());
         }
         
         Vector2 localPoint;

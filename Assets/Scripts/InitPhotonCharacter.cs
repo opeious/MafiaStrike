@@ -67,8 +67,8 @@ public class InitPhotonCharacter : MonoBehaviour
     }
 
     [PunRPC]
-    public void TakeDamage(int indexInTurnOrder, int damageTaken)
+    public void TakeDamage(int indexInTurnOrder, int damageTaken, int indexOf)
     {
-        TurnManager.Instance.TurnOrder[indexInTurnOrder].TakeDamage(damageTaken);
+        TurnManager.Instance.TurnOrder[indexInTurnOrder].TakeDamage(damageTaken, indexOf);
     }
 }

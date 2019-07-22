@@ -59,6 +59,15 @@ public class AimAssist : MonoBehaviour
                 var point1 = hitinfo.point;
                 point1.y = 0f;
                 _lineRenderer.SetPosition(1, point1);
+                var activeChar = TurnManager.Instance.TurnOrder[0];
+                if(hitinfo.collider.gameObject.name == activeChar.NameOfGameObject) {
+                    var hitChar = hitinfo.collider.gameObject.GetComponentInChildren<GameboardCharacterController>();
+                    if(hitChar != null) {
+                        if(hitChar.Data.teamId != activeChar.Data.teamId) {
+                            Debug.Log("peek" + hitChar.PeekDamageFrom(activeChar));
+                        }
+                    }
+                }
             }
 
 

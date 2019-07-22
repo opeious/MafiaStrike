@@ -10,6 +10,8 @@ public class CharacterDataScriptableObject : ScriptableObject
     [SerializeField] public float gameboardVelocity = 100f;
     [SerializeField] public int damage = 20;
     [SerializeField] public CharacterClassTypes typeOfChar;
+    [SerializeField] public CharacterClassTypes strongTo;
+    [SerializeField] public CharacterClassTypes weakTo;
     [SerializeField] public GameObject visualPrefab;
     [SerializeField] public Sprite icon;
 }

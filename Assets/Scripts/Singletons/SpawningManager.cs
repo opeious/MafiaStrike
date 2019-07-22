@@ -188,6 +188,8 @@ public class SpawningManager : MonoBehaviour
         retVal.UnitVelocity = cdso.gameboardVelocity;
         retVal.UnitSpeed = cdso.startingSpeed;
         retVal.charType = cdso.typeOfChar;
+        retVal.strongTo = cdso.strongTo;
+        retVal.weakTo = cdso.weakTo;
         retVal.icon = cdso.icon;
         return retVal;
     }

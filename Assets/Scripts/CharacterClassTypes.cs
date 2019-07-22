@@ -22,5 +22,8 @@ public class GameboardUnitData
 
     public CharacterClassTypes charType;
 
+    public CharacterClassTypes strongTo;
+    public CharacterClassTypes weakTo;
+
     public Sprite icon;
 }
