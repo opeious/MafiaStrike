@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
@@ -45,6 +46,8 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
 
 
     List<string> findingMatchTexts = new List<string>();
+
+    [SerializeField] Button CancelSearch;
 
     private void Start()
     {

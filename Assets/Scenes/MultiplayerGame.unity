@@ -445,6 +445,7 @@ MonoBehaviour:
   TurnOrder: []
   currentTurn: {fileID: 0}
   turnTimer: {fileID: 227813061}
+  yourTextGO: {fileID: 227813062}
 --- !u!114 &75513247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,6 +1174,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.000076293945
       objectReference: {fileID: 0}
+    - target: {fileID: 52829130442997161, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acfa4ad41fdea4497951ceb78f300abc, type: 3}
 --- !u!224 &227813060 stripped
@@ -1193,6 +1224,12 @@ MonoBehaviour:
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &227813062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 52829130442997161, guid: acfa4ad41fdea4497951ceb78f300abc,
+    type: 3}
+  m_PrefabInstance: {fileID: 227813059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &233944808
 GameObject:
   m_ObjectHideFlags: 0
