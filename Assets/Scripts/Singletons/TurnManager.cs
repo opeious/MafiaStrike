@@ -196,12 +196,24 @@ public class TurnManager : MonoBehaviour
         yield return null;
     }
 
+    [SerializeField] GameObject yourTextGO;
+
     public void NextTurn()
     {
         var turn = TurnOrder[0];
         TurnOrder.Remove(turn);
         TurnOrder.Add(turn);
         currentTurn = TurnOrder[0];
+        if(isMyTurn()) {
+            if(!yourTextGO.activeSelf) {
+                yourTextGO.SetActive(true);
+            }
+        } else {
+            if(yourTextGO.activeSelf) {
+                yourTextGO.SetActive(false);
+            }
+        }
+
         RaiseRefreshViews();
         SpawningManager.Instance.ResetAllRotations();
     } 
