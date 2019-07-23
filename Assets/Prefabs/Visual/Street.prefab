@@ -10077,7 +10077,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5209150659612451695, guid: 0403d84a02a87734d8110ae6dfb95c87, type: 3}
+  - {fileID: 2100000, guid: 6bdbd3c0a127ad84ea679c1f22c4090a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25130,7 +25130,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5209150659612451695, guid: 6a63bcf0bed2c0b489afff0445671b8f, type: 3}
+  - {fileID: 2100000, guid: 6bdbd3c0a127ad84ea679c1f22c4090a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31771,7 +31771,7 @@ Transform:
   m_GameObject: {fileID: 9041591062172569678}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 7166818563863576911}
   - {fileID: 2825854024841607189}
@@ -33086,15 +33086,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0b40f3f35bb64b449f6d459a4e44c96, type: 3}
---- !u!4 &9214211280912770411 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4698162548536363735, guid: c0b40f3f35bb64b449f6d459a4e44c96,
-    type: 3}
-  m_PrefabInstance: {fileID: 4534084297643929532}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4288893063925525624 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 389974929167401924, guid: c0b40f3f35bb64b449f6d459a4e44c96,
+    type: 3}
+  m_PrefabInstance: {fileID: 4534084297643929532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9214211280912770411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4698162548536363735, guid: c0b40f3f35bb64b449f6d459a4e44c96,
     type: 3}
   m_PrefabInstance: {fileID: 4534084297643929532}
   m_PrefabAsset: {fileID: 0}

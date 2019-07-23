@@ -10,7 +10,7 @@ Material:
   m_Name: G_Light_Night
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 2
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -74,4 +74,4 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.50271446, g: 0.5681128, b: 0.745283, a: 1}
-    - _EmissionColor: {r: 1.3490196, g: 2.1333334, b: 5.992157, a: 1}
+    - _EmissionColor: {r: 0.16862746, g: 0.26666668, b: 0.7490196, a: 1}
