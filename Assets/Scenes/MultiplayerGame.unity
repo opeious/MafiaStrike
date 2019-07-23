@@ -1150,47 +1150,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7445168899021306607, guid: 46dc1a01c528942a4a85a098acb33ded,
         type: 3}
-<<<<<<< HEAD
+
       propertyPath: m_textInfo.characterCount
       value: 9
-=======
+
       propertyPath: m_LocalRotation.x
       value: 0.07183506
->>>>>>> 9245d3e5347bedb99488338c5ebda300c78fa23d
+
       objectReference: {fileID: 0}
     - target: {fileID: 7445168899021306607, guid: 46dc1a01c528942a4a85a098acb33ded,
         type: 3}
-<<<<<<< HEAD
+
       propertyPath: m_textInfo.spaceCount
       value: 1
-=======
+
       propertyPath: m_LocalRotation.y
       value: -0.007621579
->>>>>>> 9245d3e5347bedb99488338c5ebda300c78fa23d
+
       objectReference: {fileID: 0}
     - target: {fileID: 7445168899021306607, guid: 46dc1a01c528942a4a85a098acb33ded,
         type: 3}
-<<<<<<< HEAD
+
       propertyPath: m_textInfo.wordCount
       value: 2
-=======
+
       propertyPath: m_LocalRotation.z
       value: 0.007446719
->>>>>>> 9245d3e5347bedb99488338c5ebda300c78fa23d
+
       objectReference: {fileID: 0}
     - target: {fileID: 7445168899021306607, guid: 46dc1a01c528942a4a85a098acb33ded,
         type: 3}
-<<<<<<< HEAD
+
       propertyPath: m_textInfo.lineCount
       value: 1
-=======
+
       propertyPath: m_LocalRotation.w
       value: 0.99735963
->>>>>>> 9245d3e5347bedb99488338c5ebda300c78fa23d
+
       objectReference: {fileID: 0}
     - target: {fileID: 7445168899021306607, guid: 46dc1a01c528942a4a85a098acb33ded,
         type: 3}
-<<<<<<< HEAD
+
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
@@ -1229,10 +1229,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
-=======
+
       propertyPath: m_LocalPosition.x
       value: 0.0000000045448543
->>>>>>> 9245d3e5347bedb99488338c5ebda300c78fa23d
+
       objectReference: {fileID: 0}
     - target: {fileID: 7445168899021306607, guid: 46dc1a01c528942a4a85a098acb33ded,
         type: 3}
