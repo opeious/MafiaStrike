@@ -48,10 +48,12 @@ public class HealthBarView : MonoBehaviour
         animator.enabled = true;
         FixedUpdate();
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.01f);
-        animator.enabled = false;
-        takingWeakDamage = false;
-        takingStrongDamage = false;
-        takingNeutralDamage = false;
+        if(animator != null) {
+            animator.enabled = false;
+            takingWeakDamage = false;
+            takingStrongDamage = false;
+            takingNeutralDamage = false;
+        }
     }
 
     private void FixedUpdate() {
