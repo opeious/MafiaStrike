@@ -347,6 +347,67 @@ PrefabInstance:
       propertyPath: m_Name
       value: MPGame_UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5,
+        type: 2}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50.65
+      objectReference: {fileID: 0}
     - target: {fileID: 1303773930592072908, guid: acfa4ad41fdea4497951ceb78f300abc,
         type: 3}
       propertyPath: m_RootOrder
@@ -763,30 +824,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
+    - target: {fileID: 52829130442997161, guid: acfa4ad41fdea4497951ceb78f300abc,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4532719051266677272, guid: acfa4ad41fdea4497951ceb78f300abc,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
+      propertyPath: m_Name
+      value: Your Turn Text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acfa4ad41fdea4497951ceb78f300abc, type: 3}
