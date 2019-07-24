@@ -115,6 +115,7 @@ public class TurnManager : MonoBehaviour
 
         currentTurn = TurnOrder[0];
         SetActiveOnly(currentTurn);
+        ToggleMyTurnText();
         RaiseRefreshViews();
     }
     
@@ -198,12 +199,7 @@ public class TurnManager : MonoBehaviour
 
     [SerializeField] GameObject yourTextGO;
 
-    public void NextTurn()
-    {
-        var turn = TurnOrder[0];
-        TurnOrder.Remove(turn);
-        TurnOrder.Add(turn);
-        currentTurn = TurnOrder[0];
+    public void ToggleMyTurnText() {
         if(isMyTurn()) {
             if(!yourTextGO.activeSelf) {
                 yourTextGO.SetActive(true);
@@ -213,6 +209,15 @@ public class TurnManager : MonoBehaviour
                 yourTextGO.SetActive(false);
             }
         }
+    }
+
+    public void NextTurn()
+    {
+        var turn = TurnOrder[0];
+        TurnOrder.Remove(turn);
+        TurnOrder.Add(turn);
+        currentTurn = TurnOrder[0];
+        ToggleMyTurnText();
 
         RaiseRefreshViews();
         SpawningManager.Instance.ResetAllRotations();
