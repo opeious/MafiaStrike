@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPlayerId: 0
+  playerJoy: {fileID: 75513247}
   currentTurnExecuted: 0
   TurnOrder: []
   currentTurn: {fileID: 0}

@@ -22,6 +22,8 @@ public class TurnManager : MonoBehaviour
         if (RefreshViews != null) RefreshViews();
     }
     
+    [SerializeField] JoystickPlayer playerJoy;
+
     public delegate void UnitDied(GameboardCharacterController deadUnit);
     public static event UnitDied UnitDeadAction;
     public static void RaiseUnitDied(GameboardCharacterController deadUnit)
@@ -135,7 +137,7 @@ public class TurnManager : MonoBehaviour
             }
         }
 
-        if(!doingBotTurn && GameSetupController.isGameSinglePlayer) {
+        if(GameSetupController.isGameSinglePlayer && !doingBotTurn && !TurnManager.Instance.currentTurnExecuted && !TurnManager.Instance.isMyTurn()) {
             doingBotTurn = true;
             StartCoroutine(DoingBotTurn());
         }
@@ -143,6 +145,14 @@ public class TurnManager : MonoBehaviour
 
     IEnumerator DoingBotTurn() {
         yield return new WaitForSeconds(8f);
+        foreach(var singleTurn in TurnManager.Instance.TurnOrder) {
+            if(singleTurn.isPlayerMe()) {
+                Vector3 direction = TurnManager.Instance.TurnOrder[0].transform.position - singleTurn.transform.position;
+                GameSetupController.PCInstance.DoNetworkRelease(direction.normalized.x, direction.normalized.y, direction.normalized.z);
+                break;
+            }
+        }
+        TurnManager.Instance.currentTurnExecuted = true;
         doingBotTurn = false;
     }
 
