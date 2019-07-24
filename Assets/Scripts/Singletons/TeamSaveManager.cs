@@ -13,7 +13,9 @@ public class TeamSaveManager : MonoBehaviour, ISaveData
     }
 
     private void Start() {
-        GameSaveManager.Instance.SetSaveDirty();
+        if(GameSaveManager.Instance != null) {
+            GameSaveManager.Instance.SetSaveDirty();
+        }
     }
 
     public Dictionary<string, object> OnSaveData(Dictionary<string, object> saveDict) {
