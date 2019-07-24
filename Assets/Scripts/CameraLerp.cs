@@ -57,6 +57,9 @@ public class CameraLerp : MonoBehaviour
         if(currentlyReturning) {
             gameObject.transform.position = Vector3.Lerp(transform.position, backupPos, 0.1f);
             gameObject.transform.rotation = Quaternion.Lerp(transform.rotation, backupRot, 0.1f);
+            if(gameObject.transform.position == backupPos && gameObject.transform.rotation == backupRot) {
+                currentlyReturning = false;
+            } 
         }
     }
 
