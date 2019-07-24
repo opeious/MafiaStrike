@@ -47,9 +47,9 @@ public class AimAssist : MonoBehaviour
             _lineRenderer.enabled = (true);
             _lineRenderer.positionCount = 2;
             Vector3 startPos = TurnManager.Instance.TurnOrder[0].transform.transform.position;
-            startPos.y += 2.5f;
+            startPos.y = 3f;
             
-            _lineRenderer.SetPosition(0, new Vector3(startPos.x, 0, startPos.z));
+            _lineRenderer.SetPosition(0, new Vector3(startPos.x, startPos.y, startPos.z));
             RaycastHit hitinfo;
             bool raycast;
             if(PhotonNetwork.IsMasterClient) {
@@ -60,7 +60,7 @@ public class AimAssist : MonoBehaviour
             if (raycast)
             {
                 var point1 = hitinfo.point;
-                point1.y = 0f;
+                point1.y = 3f;
                 _lineRenderer.SetPosition(1, point1);
                 var activeChar = TurnManager.Instance.TurnOrder[0];
                 if(hitinfo.collider.gameObject.name == activeChar.NameOfGameObject) {

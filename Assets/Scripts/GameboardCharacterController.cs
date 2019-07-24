@@ -189,10 +189,10 @@ public class GameboardCharacterController : MonoBehaviour
     
     IEnumerator EndPunch(float waitTime) {
         yield return new WaitForSeconds(waitTime);
+        TimeScaleManager.Instance.ExitSloMo();
         // SpawningManager.Instance.CanvasTransform.gameObject.SetActive(true);
         AnimatorSetBool("punch", false);
         yield return new WaitForSeconds(waitTime);
-        TimeScaleManager.Instance.ExitSloMo();
         _currentlyPunching = false;
         SpawningManager.Instance.CanvasTransform.gameObject.SetActive(true);
         CameraLerp.Instance.StartReturning();
@@ -243,7 +243,7 @@ public class GameboardCharacterController : MonoBehaviour
                                 if(hitChar != null) {
                                     var indexOf = TurnManager.Instance.TurnOrder.IndexOf(hitChar);
                                     var indexFrom = TurnManager.Instance.TurnOrder.IndexOf(this);
-                                    SpawningManager.Instance.myPhotonView.RPC("SlomoMaybe", RpcTarget.AllBuffered, indexOf, hitinfo.distance / rb.velocity.magnitude, indexFrom);
+                                    SpawningManager.Instance.myPhotonView.RPC("SlomoMaybe", RpcTarget.AllBuffered, indexOf, hitinfo.distance, indexFrom);
                                 }
                             }
                             // if(hitChar != null) {
@@ -285,7 +285,11 @@ public class GameboardCharacterController : MonoBehaviour
             if (TurnManager.Instance.currentTurn == this)
             {
                 var directionVisualPrefab = isPlayerMe() ? -rb.velocity.normalized : rb.velocity.normalized;
-                VisualPrefabContainer.transform.localRotation = Quaternion.LookRotation(-directionVisualPrefab);
+                if(PhotonNetwork.IsMasterClient) {
+                    VisualPrefabContainer.transform.localRotation = Quaternion.LookRotation(-directionVisualPrefab);
+                } else {
+                    VisualPrefabContainer.transform.localRotation = Quaternion.LookRotation(directionVisualPrefab);
+                }
             }
         }
 
