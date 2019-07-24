@@ -51,4 +51,17 @@ public class DelayStartLobbyController : MonoBehaviourPunCallbacks
         delayStartButton.SetActive(true);
         PhotonNetwork.LeaveRoom();
     }
+
+    [SerializeField] GameObject cardCollection;
+    [SerializeField] GameObject cardCollectionButton;
+
+    public void OnCollection() {
+        cardCollection.SetActive(true);
+        cardCollectionButton.SetActive(false);
+    }
+
+    public void OffCollection() {
+        cardCollection.SetActive(false);
+        cardCollectionButton.SetActive(true);
+    }
 }
