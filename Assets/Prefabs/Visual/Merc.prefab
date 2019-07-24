@@ -32587,7 +32587,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 9d484a4746abdf3439090efc9579cb9e, type: 2}
     - target: {fileID: 1824273551273403451, guid: f8be2a6df7d30404eb2f2d5e48cc3e3e,
         type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
@@ -33083,7 +33083,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 9d484a4746abdf3439090efc9579cb9e, type: 2}
     - target: {fileID: 1824273551273403451, guid: f8be2a6df7d30404eb2f2d5e48cc3e3e,
         type: 3}
       propertyPath: EmissionModule.rateOverDistance.scalar
