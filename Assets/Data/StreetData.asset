@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8d5f40c7c1048a3998713e0c95edcf, type: 3}
   m_Name: StreetData
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10
   startingSpeed: 100
   gameboardVelocity: 100
   damage: 20

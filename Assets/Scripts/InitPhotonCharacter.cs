@@ -71,4 +71,9 @@ public class InitPhotonCharacter : MonoBehaviour
     {
         TurnManager.Instance.TurnOrder[indexInTurnOrder].TakeDamage(damageTaken, indexOf);
     }
+
+    [PunRPC]
+    public void SlomoMaybe(int indexFrom, float distance, int indexOf) {
+        TurnManager.Instance.TurnOrder[indexOf].SlomoMaybe(indexFrom, distance);
+    }
 }

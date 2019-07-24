@@ -35,5 +35,6 @@ MonoBehaviour:
   - ServerNetworkRelease
   - TakeDamage
   - TurnExpired
+  - SlomoMaybe
   DisableAutoOpenWizard: 1
   ShowSettings: 1

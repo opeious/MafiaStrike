@@ -329,6 +329,7 @@ MonoBehaviour:
   _anim: {fileID: 1978032517}
   tdt: 0
   enableOnTime: {fileID: 1600399432}
+  playingAudio: 0
 --- !u!1 &476923026
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +516,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
