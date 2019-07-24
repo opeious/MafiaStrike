@@ -38,6 +38,7 @@ public class NextTurnView : MonoBehaviour
 //            nextTurnCell.DebugTextSetup(singleTurn.Data.debugId);
             nextTurnCell.SetColor(singleTurn.Data.teamId);
             nextTurnCell.SetIcon(singleTurn.Data.icon);
+            nextTurnCell.SetType(singleTurn.Data.charType);
             cells.Add(newTurnGO);
         }
     }

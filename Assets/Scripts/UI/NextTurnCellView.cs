@@ -11,9 +11,23 @@ public class NextTurnCellView : MonoBehaviour
     [SerializeField] GameObject redTeam, blueTeam;
     [SerializeField] Image icon;
 
+    [SerializeField] GameObject cropIcon, mercIcon, streetIcon;
+
     public void SetIcon(Sprite iconToSet)
     {
         icon.sprite = iconToSet;
+    }
+
+    public void SetType(CharacterClassTypes cct) {
+        if(cct == CharacterClassTypes.CORPORATE) {
+            cropIcon.SetActive(true);
+        }
+        if(cct == CharacterClassTypes.MERCENARY) {
+            mercIcon.SetActive(true);
+        }
+        if(cct == CharacterClassTypes.STREET) {
+            streetIcon.SetActive(true);
+        }
     }
 
     public void SetColor(int teamId)

@@ -258,7 +258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6343007777658387586
 RectTransform:
   m_ObjectHideFlags: 0
@@ -630,7 +630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &350964891951194400
 RectTransform:
   m_ObjectHideFlags: 0
@@ -740,6 +740,9 @@ MonoBehaviour:
   redTeam: {fileID: 6898200482894254588}
   blueTeam: {fileID: 1880700665717945140}
   icon: {fileID: 3901426151222671404}
+  cropIcon: {fileID: 4173162996268445680}
+  mercIcon: {fileID: 8964915405680494723}
+  streetIcon: {fileID: 7957752266118301133}
 --- !u!1 &8391092731541359444
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5824679510520171463
 RectTransform:
   m_ObjectHideFlags: 0
