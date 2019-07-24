@@ -238,7 +238,7 @@ public class GameboardCharacterController : MonoBehaviour
                 if(slowMoRay) {
                     if(hitinfo.collider != null && hitinfo.collider.gameObject != null) {        
                         if(hitinfo.collider.gameObject.name == NameOfGameObject) {
-                            if(PhotonNetwork.IsMasterClient) {
+                            if(PhotonNetwork.IsMasterClient || GameSetupController.isGameSinglePlayer) {
                                 var hitChar = hitinfo.collider.gameObject.GetComponentInChildren<GameboardCharacterController>();
                                 if(hitChar != null) {
                                     var indexOf = TurnManager.Instance.TurnOrder.IndexOf(hitChar);
