@@ -37,6 +37,8 @@ public class SpawningManager : MonoBehaviour
     public RectTransform CanvasTransform;
     public GameObject prefabToBeSpawned;
     public GameObject prefabSpinOnLoad;
+
+    public Transform healthBarContainer;
     #endregion
 
     

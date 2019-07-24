@@ -144,6 +144,7 @@ public class TurnManager : MonoBehaviour
     }
 
     IEnumerator DoingBotTurn() {
+        TurnManager.Instance.currentTurnExecuted = true;
         yield return new WaitForSeconds(8f);
         foreach(var singleTurn in TurnManager.Instance.TurnOrder) {
             if(singleTurn.isPlayerMe()) {
@@ -152,7 +153,6 @@ public class TurnManager : MonoBehaviour
                 break;
             }
         }
-        TurnManager.Instance.currentTurnExecuted = true;
         doingBotTurn = false;
     }
 
