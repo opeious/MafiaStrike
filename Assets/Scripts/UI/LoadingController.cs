@@ -32,7 +32,7 @@ public class LoadingController : MonoBehaviour
             _anim.SetBool("punchAnim", true);
             if(!playingAudio) {
                 playingAudio = true;
-                SoundManager.Instance.PlayAudio(1);
+                SoundManager.PlayAudio(1);
             }
             enableOnTime.SetActive(true);
         }

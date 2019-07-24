@@ -120,23 +120,23 @@ public class GameboardCharacterController : MonoBehaviour
         }
         HealthBarSetPeekDamage((int)dmg);
         if(dying) {
-            SoundManager.Instance.PlayAudio(2);
+            SoundManager.PlayAudio(2);
         }
         if(strong) {
             if(!dying) {
-                SoundManager.Instance.PlayAudio(0);
+                SoundManager.PlayAudio(0);
             }
             ActiveHealthBarView.takingStrongDamage = true;
             StartCoroutine(ActiveHealthBarView.DoTakeDmgAniamtion(ActiveHealthBarView.strongAnimDmg));
         } else if (weak) {
             if(!dying) {
-                SoundManager.Instance.PlayAudio(4);
+                SoundManager.PlayAudio(4);
             }
             ActiveHealthBarView.takingWeakDamage = true;
             StartCoroutine(ActiveHealthBarView.DoTakeDmgAniamtion(ActiveHealthBarView.weakAnimDmg));
         } else {
             if(!dying) {
-                SoundManager.Instance.PlayAudio(3);
+                SoundManager.PlayAudio(3);
             }
             ActiveHealthBarView.takingNeutralDamage = true;
             StartCoroutine(ActiveHealthBarView.DoTakeDmgAniamtion(ActiveHealthBarView.neutralAnimDmg));
@@ -243,27 +243,13 @@ public class GameboardCharacterController : MonoBehaviour
                                 if(hitChar != null) {
                                     var indexOf = TurnManager.Instance.TurnOrder.IndexOf(hitChar);
                                     var indexFrom = TurnManager.Instance.TurnOrder.IndexOf(this);
-                                    SpawningManager.Instance.myPhotonView.RPC("SlomoMaybe", RpcTarget.AllBuffered, indexOf, hitinfo.distance, indexFrom);
+                                    if(GameSetupController.isGameSinglePlayer) {
+                                        GameSetupController.PCInstance.SlomoMaybe(indexOf, hitinfo.distance, indexFrom);
+                                    } else {
+                                        SpawningManager.Instance.myPhotonView.RPC("SlomoMaybe", RpcTarget.AllBuffered, indexOf, hitinfo.distance, indexFrom);
+                                    }
                                 }
                             }
-                            // if(hitChar != null) {
-                            //     // if(hitChar.Data.teamId != Data.teamId) {
-                            //     //     if(hitChar.currentHealth < Data.damage) {
-                            //     //         if(_currentlyPunching == false) {
-                            //     //             SpawningManager.Instance.CanvasTransform.gameObject.SetActive(false);
-                            //     //             CameraLerp.Instance.StartLerping(CameraAnchor, CameraAnchor.position, CameraAnchor);
-                            //     //             TimeScaleManager.Instance.EnterSloMo();
-                            //     //             AnimatorSetBool("punch", true);
-                            //     //             float timeToDoAnim = hitinfo.distance / rb.velocity.magnitude;
-                            //     //             StartCoroutine(EndPunch(_animator.GetCurrentAnimatorStateInfo(0).length * timeToDoAnim));
-                            //     //             AniamtionSetFloat("punchAnimationSpeed", _animator.GetCurrentAnimatorStateInfo(0).length / timeToDoAnim);
-                            //     //             _currentlyPunching = true;
-                            //     //             hitChar.AnimatorSetBool("dieded", true);
-                            //     //             hitChar.AnimatorSetBool("getHit", true);
-                            //     //         }
-                            //     //     }
-                            //     // }
-                            // }
                         }
                         
                         else {
@@ -301,7 +287,7 @@ public class GameboardCharacterController : MonoBehaviour
     
     private void OnCollisionEnter(Collision other)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient || GameSetupController.isGameSinglePlayer)
         {
             if (NameOfGameObject == other.gameObject.name)
             {
@@ -314,7 +300,11 @@ public class GameboardCharacterController : MonoBehaviour
                         {
                             if (characterHit == TurnManager.Instance.TurnOrder[i])
                             {
-                                SpawningManager.Instance.myPhotonView.RPC("TakeDamage", RpcTarget.AllBuffered, i, Data.damage, TurnManager.Instance.TurnOrder.IndexOf(this));
+                                if(GameSetupController.isGameSinglePlayer) {
+                                    GameSetupController.PCInstance.TakeDamage(i, Data.damage,TurnManager.Instance.TurnOrder.IndexOf(this));
+                                } else {
+                                    SpawningManager.Instance.myPhotonView.RPC("TakeDamage", RpcTarget.AllBuffered, i, Data.damage, TurnManager.Instance.TurnOrder.IndexOf(this));
+                                }
                                 break;   
                             }
                         }
