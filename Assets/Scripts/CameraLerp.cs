@@ -20,9 +20,15 @@ public class CameraLerp : MonoBehaviour
     bool currentlyReturning = false;
 
     private void Awake() {
+        StartCoroutine(PostStartup());
+        Instance = this;
+    }
+
+    IEnumerator PostStartup() {
+        yield return new WaitForSeconds(8);
+        GetComponent<Cinemachine.CinemachineBrain>().enabled = false;
         backupPos = transform.position;
         backupRot = transform.rotation;
-        Instance = this;
     }
 
     private void OnDestroy() {

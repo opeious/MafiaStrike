@@ -197,8 +197,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 742d8ae8f596c414f8d60ecea5592248, type: 2}
   - {fileID: 11400000, guid: b57ada985e4264c6ca2d29dcc337865c, type: 2}
   - {fileID: 11400000, guid: 21c5e6fba15314b1c9355e9e1adf3e80, type: 2}
-  team1Data: 000000000000000000000000
-  team2Data: 000000000000000000000000
+  team1Data: 000000000100000002000000
+  team2Data: 000000000100000002000000
 --- !u!114 &75513246
 MonoBehaviour:
   m_ObjectHideFlags: 0
