@@ -127,12 +127,27 @@ public class TurnManager : MonoBehaviour
         turnTimer.value = normalizedTime;
         if ( _countdownTimer > TURN_TIME)
         {
-            if (PhotonNetwork.IsMasterClient && SpawningManager.Instance.serverPhotonView.IsMine)
+            if(GameSetupController.isGameSinglePlayer) {
+                GameSetupController.PCInstance.TurnExpired(0f);
+            } else if (PhotonNetwork.IsMasterClient && SpawningManager.Instance.serverPhotonView.IsMine)
             {
                 SpawningManager.Instance.serverPhotonView.RPC("TurnExpired", RpcTarget.AllBuffered, 0f);   
             }
         }
+
+        if(!doingBotTurn && GameSetupController.isGameSinglePlayer) {
+            doingBotTurn = true;
+            StartCoroutine(DoingBotTurn());
+        }
     }
+
+    IEnumerator DoingBotTurn() {
+        yield return new WaitForSeconds(8f);
+        doingBotTurn = false;
+    }
+
+
+    bool doingBotTurn;
     
     public void SetActiveOnly(GameboardCharacterController gcc)
     {

@@ -18,12 +18,14 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public void PlayAudio(int index) {
-        if(index >= 0 && index < listOfSounds.Count) {
-            if(listOfSounds!= null && listOfSounds[index] != null) {
-                sfxPlayer.clip = listOfSounds[index];
-                sfxPlayer.Play();
-                // listOfSounds[index].
+    public static void PlayAudio(int index) {
+        if(Instance == null) {
+            return;
+        }
+        if(index >= 0 && index < Instance.listOfSounds.Count) {
+            if(Instance.listOfSounds!= null && Instance.listOfSounds[index] != null) {
+                Instance.sfxPlayer.clip = Instance.listOfSounds[index];
+                Instance.sfxPlayer.Play();
             }
         }
     }

@@ -9,13 +9,16 @@ public class InitPhotonCharacter : MonoBehaviour
     private void Awake()
     {
         thisPV = GetComponent<PhotonView>();
+        if(GameSetupController.isGameSinglePlayer) {
+            GameSetupController.PCInstance = this;
+        }
 
-        if (thisPV.IsMine)
+        if (thisPV.IsMine || GameSetupController.isGameSinglePlayer)
         {
             SpawningManager.Instance.myPhotonView = thisPV;
         }
         
-        if (thisPV.isMasterClient())
+        if (thisPV.isMasterClient() || GameSetupController.isGameSinglePlayer)
         {
             SpawningManager.Instance.serverPhotonView = thisPV;
             SpawnOnServer();
@@ -28,20 +31,24 @@ public class InitPhotonCharacter : MonoBehaviour
 
     void SpawnOnServer()
     {
-        if (PhotonNetwork.IsMasterClient && (thisPV.IsMine || PhotonNetwork.OfflineMode))
+        if ((PhotonNetwork.IsMasterClient && thisPV.IsMine)|| GameSetupController.isGameSinglePlayer)
         {
-            thisPV.RPC("PVSpawn", RpcTarget.AllBuffered);
+            if(!GameSetupController.isGameSinglePlayer) {
+                thisPV.RPC("PVSpawn", RpcTarget.AllBuffered);
+            } else {
+                PVSpawn();
+            }
         }
     }
     
     [PunRPC]
-    void TurnExpired(float nuller)
+    public void TurnExpired(float nuller)
     {
         TurnManager.Instance.TurnExpired();
     }
     
     [PunRPC]
-    void PVSpawn()
+    public void PVSpawn()
     {
         SpawningManager.Instance.serverPhotonViewSet = true;
     }
@@ -49,7 +56,10 @@ public class InitPhotonCharacter : MonoBehaviour
     [PunRPC]
     public void DoNetworkRelease(float x, float y, float z)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if(GameSetupController.isGameSinglePlayer) {
+            ServerNetworkRelease(x,y,z);
+        }
+        else if (PhotonNetwork.IsMasterClient)
         {
             thisPV.RPC("ServerNetworkRelease", RpcTarget.AllBuffered, x, y, z);
         }

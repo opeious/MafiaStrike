@@ -76,7 +76,11 @@ public class JoystickPlayer : MonoBehaviour
             {
                 direction = direction * -1;
             }
-            SpawningManager.Instance.myPhotonView.RPC("DoNetworkRelease", RpcTarget.AllBuffered, direction.x, direction.y, direction.z);   
+            if(GameSetupController.isGameSinglePlayer) {
+                GameSetupController.PCInstance.DoNetworkRelease(direction.x, direction.y, direction.z);
+            } else {
+                SpawningManager.Instance.myPhotonView.RPC("DoNetworkRelease", RpcTarget.AllBuffered, direction.x, direction.y, direction.z);   
+            }
         }
     }
 }
