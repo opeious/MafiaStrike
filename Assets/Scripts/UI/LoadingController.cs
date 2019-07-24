@@ -22,12 +22,18 @@ public class LoadingController : MonoBehaviour
         PhotonNetwork.OfflineMode = false;
     }
 
+    public bool playingAudio;
+
     private void Update()
     {
         tdt += Time.deltaTime;
         if (slider.value >= 0.75f)
         {
             _anim.SetBool("punchAnim", true);
+            if(!playingAudio) {
+                playingAudio = true;
+                SoundManager.Instance.PlayAudio(1);
+            }
             enableOnTime.SetActive(true);
         }
 

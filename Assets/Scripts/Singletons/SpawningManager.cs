@@ -70,20 +70,6 @@ public class SpawningManager : MonoBehaviour
         unitsOnBoard = new List<GameboardCharacterController>();
 
         int iterator = 0;
-        foreach (var singleUnit in DataManager.Instance.team1Data)
-        {
-            foreach (var singleCharClass in DataManager.Instance.characterClasses)
-            {
-                if (singleCharClass.typeOfChar == singleUnit)
-                {
-                    var singleUnitData = MakeDataFromOSbject(singleCharClass);
-                    singleUnitData.teamId = 0;
-                    singleUnitData.debugId = iterator++;
-                    unitsDataOnBoardForInit.Add(singleUnitData);
-                    break;
-                }
-            }
-        }
         foreach (var singleUnit in DataManager.Instance.team2Data)
         {
             foreach (var singleCharClass in DataManager.Instance.characterClasses)
@@ -92,6 +78,20 @@ public class SpawningManager : MonoBehaviour
                 {
                     var singleUnitData = MakeDataFromOSbject(singleCharClass);
                     singleUnitData.teamId = 1;
+                    singleUnitData.debugId = iterator++;
+                    unitsDataOnBoardForInit.Add(singleUnitData);
+                    break;
+                }
+            }
+        }
+        foreach (var singleUnit in DataManager.Instance.team1Data)
+        {
+            foreach (var singleCharClass in DataManager.Instance.characterClasses)
+            {
+                if (singleCharClass.typeOfChar == singleUnit)
+                {
+                    var singleUnitData = MakeDataFromOSbject(singleCharClass);
+                    singleUnitData.teamId = 0;
                     singleUnitData.debugId = iterator++;
                     unitsDataOnBoardForInit.Add(singleUnitData);
                     break;
