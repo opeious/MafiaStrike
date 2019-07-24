@@ -29,7 +29,6 @@ public class TeamSaveManager : MonoBehaviour, ISaveData
     }
     
     public void OnLoadData(Dictionary<string, object> saveDict) {
-        Debug.Log("p");
         var test = saveDict["tcomp"] as Dictionary<string, object>;
 
         int iterator = 0;
@@ -38,7 +37,5 @@ public class TeamSaveManager : MonoBehaviour, ISaveData
                 teamComp[iterator++] = (CharacterClassTypes) Enum.Parse(typeof(CharacterClassTypes), kvp.Value + "");
             }
         }
-
-        Debug.Log("p");
     }
 }

@@ -66,9 +66,18 @@ public class DelayStartWaitingRoomController : MonoBehaviourPunCallbacks
 
     float countdownTextChange = 0f;
     int countdownTextChangeIterator = 0;
+
+    float singlePlayerCountdown = 0;
+
     private void Update()
     {
         countdownTextChange += Time.deltaTime;
+        singlePlayerCountdown += Time.deltaTime;
+
+        if(singlePlayerCountdown >= 30f) {
+            SceneManager.LoadScene("SinglePlayerGame");
+        }
+
         if(countdownTextChange > 1.5f) {
             countdownTextChange = 0f;
             if(countdownTextChangeIterator >= findingMatchTexts.Count) {

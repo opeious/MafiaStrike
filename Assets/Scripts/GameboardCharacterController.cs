@@ -328,8 +328,7 @@ public class GameboardCharacterController : MonoBehaviour
     
     public void CreateHealthbar()
     {        
-        ActiveHealthBar = Instantiate(HealthBarPrefab);
-        ActiveHealthBar.transform.SetParent(SpawningManager.Instance.CanvasTransform);
+        ActiveHealthBar = Instantiate(HealthBarPrefab, SpawningManager.Instance.healthBarContainer);
 
         ActiveHealthBarView = ActiveHealthBar.GetComponent<HealthBarView>();
         if (ActiveHealthBarView != null)
