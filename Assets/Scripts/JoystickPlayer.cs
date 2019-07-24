@@ -68,7 +68,7 @@ public class JoystickPlayer : MonoBehaviour
     {
         if (!TurnManager.Instance.isMyTurn())
         {
-//            return;
+            return;
         }
         if (direction.magnitude > RELEASE_THRESHOLD && !TurnManager.Instance.currentTurnExecuted)
         {
