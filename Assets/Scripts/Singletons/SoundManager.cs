@@ -6,6 +6,8 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
+    public List<AudioClip> listOfSounds;
+
     public static bool win = true;
     // Start is called before the first frame update
     void Start()

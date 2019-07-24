@@ -375,6 +375,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db88e30d2b8a437288a168a51203f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listOfSounds:
+  - {fileID: 8300000, guid: 6f50c5197607b6c4b825fc1cf9c46a84, type: 3}
+  - {fileID: 8300000, guid: 5e7493b8ca510d349a56da9285e4d899, type: 3}
+  - {fileID: 8300000, guid: 859d03700f885c34db349201bfe12c2b, type: 3}
+  - {fileID: 8300000, guid: 04cb0439c83ad744c8a80b79c045002d, type: 3}
+  - {fileID: 8300000, guid: 870ee3966e090ac4abe945087ac28e56, type: 3}
 --- !u!82 &476923029
 AudioSource:
   m_ObjectHideFlags: 0
