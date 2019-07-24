@@ -8,7 +8,8 @@ public class NextTurnCellView : MonoBehaviour
 {
     [SerializeField] private GameObject debugColorImg;
 
-    [SerializeField] private Image icon;
+    [SerializeField] GameObject redTeam, blueTeam;
+    [SerializeField] Image icon;
 
     public void SetIcon(Sprite iconToSet)
     {
@@ -22,11 +23,13 @@ public class NextTurnCellView : MonoBehaviour
             var img = debugColorImg.GetComponent<Image>();
             if (teamId == TurnManager.Instance.thisPlayerId)
             {
-                img.color = Color.blue;
+                redTeam.SetActive(false);
+                blueTeam.SetActive(true);
             }
             else
             {
-                img.color = Color.red;
+                redTeam.SetActive(true);
+                blueTeam.SetActive(false);
             }
         }
     }

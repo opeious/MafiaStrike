@@ -188,14 +188,10 @@ public class GameboardCharacterController : MonoBehaviour
     {
         if (ActiveHealthBar != null)
         {
-            if (rb.velocity.magnitude > 1)
-            {
-                Vector2 localPoint;
-                var screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, HealthBarAnchor.position);
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(SpawningManager.Instance.CanvasTransform, screenPos, null, out localPoint);
-                ActiveHealthBar.transform.localPosition = localPoint;
-
-            }
+            Vector2 localPoint;
+            var screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, HealthBarAnchor.position);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(SpawningManager.Instance.CanvasTransform, screenPos, null, out localPoint);
+            ActiveHealthBar.transform.localPosition = localPoint;
         }
 
         if(rb.velocity.magnitude > 1f) {

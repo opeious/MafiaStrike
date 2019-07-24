@@ -184,7 +184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7193374446667185988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4511170195029795209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -737,7 +737,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugColorImg: {fileID: 8596161215680450438}
-  icon: {fileID: 0}
+  redTeam: {fileID: 6898200482894254588}
+  blueTeam: {fileID: 1880700665717945140}
+  icon: {fileID: 3901426151222671404}
 --- !u!1 &8391092731541359444
 GameObject:
   m_ObjectHideFlags: 0
